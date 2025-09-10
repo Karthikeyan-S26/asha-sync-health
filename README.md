@@ -1,73 +1,98 @@
-# Welcome to your Lovable project
+Smart Community Health Monitoring & Early Warning System
 
-## Project info
+A digital health platform designed to detect, monitor, and prevent outbreaks of water-borne diseases in rural communities, with a focus on Northeast India.
+The system integrates mobile reporting, IoT water sensors, hospital datasets, and predictive models to provide early warnings and assist health authorities in timely interventions.
 
-**URL**: https://lovable.dev/projects/ab17d5f6-3ca0-406f-b646-1d0fe4428f86
+🚀 Features
 
-## How can I edit this code?
+Symptom Reporting: ASHA workers and community members can submit health reports via mobile/web app.
 
-There are several ways of editing your application.
+Hospital Data Integration: Patient records from clinics/hospitals can be uploaded for outbreak analysis.
 
-**Use Lovable**
+Water Quality Monitoring: IoT sensors and manual test kits track water contamination (pH, turbidity, TDS, E. coli, etc.).
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/ab17d5f6-3ca0-406f-b646-1d0fe4428f86) and start prompting.
+Photo Scanning: Mobile app supports photo uploads of test strips for automated contamination detection.
 
-Changes made via Lovable will be committed automatically to this repo.
+Dashboard for Health Officers: Interactive map and charts showing hotspots, alerts, and resource needs.
 
-**Use your preferred IDE**
+Multilingual & Offline Support: Works in English, Hindi, Assamese and supports offline data entry with sync.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Real-Time Alerts: SMS and push notifications to district health officials and local leaders.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+📂 Project Structure
+smart-health-monitoring/
+├── backend/          # FastAPI backend APIs and ML models
+│   ├── server.py
+│   ├── requirements.txt
+│   └── .env
+├── frontend/         # React + Vite frontend (dashboard & app)
+│   ├── src/
+│   ├── package.json
+│   └── .env
+├── ml_models/        # Trained ML models (risk prediction, photo classification)
+├── database/         # MongoDB/Postgres schemas and setup
+├── iot/              # IoT integration scripts (ESP32/Arduino simulation)
+└── README.md
 
-Follow these steps:
+⚙️ Tech Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+Frontend: React, Vite, TypeScript, TailwindCSS, shadcn/ui, Leaflet.js (maps), Recharts (graphs)
+
+Backend: FastAPI (Python)
+
+Database: MongoDB / PostgreSQL
+
+IoT Integration: ESP32 / Arduino for sensor data (pH, turbidity, TDS, chlorine, bacteria)
+
+Deployment: Docker + Cloud-ready (AWS / GCP / Render)
+
+🔧 Setup Instructions
+1. Clone the Repository
 git clone <YOUR_GIT_URL>
+cd smart-health-monitoring
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+2. Backend Setup
+cd backend
+pip install -r requirements.txt
+uvicorn server:app --reload
 
-# Step 3: Install the necessary dependencies.
-npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+Runs backend at http://localhost:8000
+
+3. Frontend Setup
+cd frontend
+npm install
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Runs frontend at http://localhost:5173
 
-**Use GitHub Codespaces**
+4. Database Setup
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Install and start MongoDB/Postgres.
 
-## What technologies are used for this project?
+Create database smart_health.
 
-This project is built with:
+Update .env files with DB connection string.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+5. IoT Simulation
 
-## How can I deploy this project?
+Use iot/ scripts to push mock sensor data.
 
-Simply open [Lovable](https://lovable.dev/projects/ab17d5f6-3ca0-406f-b646-1d0fe4428f86) and click on Share -> Publish.
+Example: python send_sensor_data.py
 
-## Can I connect a custom domain to my Lovable project?
+📊 Expected Outcome
 
-Yes, you can!
+Health officers see early outbreak warnings on dashboard.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Villagers get notified about unsafe water and hygiene practices.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Authorities can act faster with real-time insights, reducing mortality and improving healthcare access.
+
+👥 Team
+
+Health data input: ASHA workers, hospitals, community volunteers
+
+Monitoring: Health departments, Panchayat leaders
+
+Developers: [Team Name]
